@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Practical Downloads</title>
+  <style>
+            body {
+        font-family: Arial, sans-serif;
+        background: black;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        }
+
+        .container {
+        background: rgb(44, 44, 44);
+        padding: 20px 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 500px;
+        }
+
+        h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        }
+
+        ul {
+        list-style-type: none;
+        padding: 0;
+        }
+
+        li {
+        background-color: rgb(93, 93, 93);
+        color: white;
+        padding: 10px 15px;
+        margin: 10px 0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        }
+
+        li:hover {
+        background-color: rgb(159, 159, 159);
+        }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Download Practicals</h1>
+  <ul id="practical-list">
+    <!-- Practical names will be populated here -->
+  </ul>
+</div>
+
+<script>
+        // Practical names and their corresponding ZIP file links
+    const practicals = [
+    { name: "1. HTML College Webpage", file: "P1.zip" },
+    { name: "2. TechFest media Queries", file: "P2.zip" },
+    { name: "3. E-commerce bootstrap", file: "P3.zip" },
+    { name: "4. Game", file: "P4.zip" },
+    { name: "5. Weather app", file: "P5.zip" },
+    { name: "6. News api", file: "P6.zip" },
+    { name: "7 & 8. Keeper app and upgraded keeper (7 & 8)", file: "P7.zip" },
+    ];
+
+    const list = document.getElementById('practical-list');
+
+    practicals.forEach(practical => {
+    const listItem = document.createElement('li');
+    listItem.textContent = practical.name;
+    listItem.addEventListener('click', () => {
+        // Trigger download
+        const link = document.createElement('a');
+        link.href = practical.file; 
+        link.download = practical.file; 
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+    list.appendChild(listItem);
+    });
+
+</script>
+</body>
+</html>
